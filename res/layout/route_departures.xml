@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DeparturesActivity"  >
+        
+    <LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+	
+	    <!-- Spinner com as opcoes:
+	   	Dias uteis
+	   	Sabados
+	   	Domingos/Feriados
+	  	-->
+	
+		<Spinner
+	         android:id="@+id/cmbHorarios"
+	         android:layout_width="fill_parent"
+	         android:layout_height="43dp" />
+	
+
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="fill_parent"
+	        android:orientation="vertical" >
+	       
+    <com.arctouch.bustouch.components.TextViewPlus
+        android:id="@+id/txtEmptyMessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/empty_resultset"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:visibility="invisible" />
+
+	<ListView
+		    android:id="@id/android:list"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:cacheColorHint="@android:color/transparent"
+		    android:drawSelectorOnTop="false"
+		    android:textAppearance="?android:attr/textAppearanceMedium"
+	    	android:visibility="invisible" />
+	    </LinearLayout>
+		
+	</LinearLayout>
+    
+
+</LinearLayout>

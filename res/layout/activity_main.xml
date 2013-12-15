@@ -1,0 +1,84 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity" >
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+		<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical"
+	            android:layout_marginBottom="9dp" >
+	
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:gravity="center"
+	                android:orientation="vertical"
+	                android:layout_marginBottom="2dp" >
+	
+	                <ImageView
+	                    android:id="@+id/imgLogo"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:src="@drawable/logo"
+	                    android:contentDescription="@string/logo_description"
+	                    android:layout_marginBottom="3dp" />
+	
+	            </LinearLayout>
+	            
+	            <EditText
+	                android:id="@+id/txtBuscaMain"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:ems="10"
+	                android:inputType="textShortMessage"
+	                android:lines="1" >
+	            </EditText>
+	
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:gravity="right"
+	                android:orientation="vertical" >
+	
+	                <ImageButton
+	                    android:id="@+id/btnBuscarMain"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:background="@null"
+	                    android:src="@drawable/botao_busca"
+	                    android:contentDescription="@string/search_button_description"
+	                    android:layout_marginRight="5dp"
+	                    android:layout_marginTop="3dp" />
+			
+			    </LinearLayout>
+	
+			</LinearLayout>
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+		        android:gravity="bottom|right" >
+		
+		        <ImageButton
+		            android:id="@+id/btnTabMaps"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:background="@null"
+		            android:src="@drawable/botao_mapa"
+		            android:contentDescription="@string/search_by_map_description"
+		            android:layout_marginBottom="3dp" />
+		
+		    </LinearLayout>
+		</LinearLayout>
+		
+	</ScrollView>
+	
+    
+</LinearLayout>
