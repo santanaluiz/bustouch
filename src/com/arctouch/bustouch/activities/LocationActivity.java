@@ -39,11 +39,12 @@ public class LocationActivity extends MapActivity implements LocationListener, S
 	private Location currentLocation;
 	private GeoPoint geoPoint;
 	private Geocoder geocoder;
-	private EditText txtBusca;
+	private static EditText searchTextField;
+	private static ImageButton searchButton;
 	private List<Overlay> mapOverlays;
 	private MapController mapController;
 	private BusSignOverlay busSignOverlay;
-
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,13 +53,10 @@ public class LocationActivity extends MapActivity implements LocationListener, S
 		initializeScreenElements();
 		initializeMapAndLocation();
 		loadCurrentLocation();
-		
 
-		
 		final LocationActivity activity = this;
 		map.setOnLongpressListener(new LongPressMapView.OnLongpressListener() {
 	        public void onLongpress(final MapView view, final GeoPoint longpressLocation) {
-	        	getSearchLayoutHeight();
 	        	activity.geoPoint = longpressLocation;
         		
         		activity.executeGeocodingTask();
@@ -66,10 +64,6 @@ public class LocationActivity extends MapActivity implements LocationListener, S
 		});
 	}
 	
-	private void getSearchLayoutHeight() {
-		LinearLayout searchLayout = (LinearLayout) this.findViewById(R.id.layoutSearch);
-		CommonData.SEARCH_LAYOUT_HEIGHT = searchLayout.getHeight();
-	}
 
 	private void loadCurrentLocation() {
 		Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -89,10 +83,10 @@ public class LocationActivity extends MapActivity implements LocationListener, S
 	}
 
 	private void initializeScreenElements() {
-		this.txtBusca = (EditText) this.findViewById(R.id.txtBuscaMap);
+		this.searchTextField = (EditText) this.findViewById(R.id.txtBuscaMap);
 		
-		ImageButton btnBuscar = (ImageButton) this.findViewById(R.id.btnBuscarMap);
-		btnBuscar.setOnClickListener(new SearchClickListener(this));
+		this.searchButton = (ImageButton) this.findViewById(R.id.btnBuscarMap);
+		this.searchButton.setOnClickListener(new SearchClickListener(this));
 		
 		map = (LongPressMapView) this.findViewById(R.id.map);
 	}
@@ -218,11 +212,11 @@ public class LocationActivity extends MapActivity implements LocationListener, S
 	}
 
 	public EditText getTxtBusca() {
-		return txtBusca;
+		return searchTextField;
 	}
 
 	public void setTxtBusca(EditText txtBusca) {
-		this.txtBusca = txtBusca;
+		this.searchTextField = txtBusca;
 	}
 
 	public Location getCurrentLocation() {
@@ -247,6 +241,26 @@ public class LocationActivity extends MapActivity implements LocationListener, S
 
 	public void setGeoPoint(GeoPoint geoPoint) {
 		this.geoPoint = geoPoint;
+	}
+
+
+	public static EditText getSearchTextField() {
+		return searchTextField;
+	}
+
+
+	public static void setSearchTextField(EditText searchTextField) {
+		LocationActivity.searchTextField = searchTextField;
+	}
+
+
+	public static ImageButton getSearchButton() {
+		return searchButton;
+	}
+
+
+	public static void setSearchButton(ImageButton searchButton) {
+		LocationActivity.searchButton = searchButton;
 	}
 
 }

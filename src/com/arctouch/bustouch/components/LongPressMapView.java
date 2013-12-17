@@ -7,7 +7,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+import com.arctouch.bustouch.activities.LocationActivity;
 import com.arctouch.bustouch.json.common.CommonData;
+import static com.arctouch.bustouch.util.ValidationUtil.*;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapView;
 
@@ -47,18 +49,31 @@ public class LongPressMapView extends MapView {
 
 		return super.onTouchEvent(event);
 	}
+	
+	private int calculateSearchBoxHeight() {
+		int searchBoxHeight = 0;
+		if (isNotNull(LocationActivity.getSearchButton())
+				&& isNotNull(LocationActivity.getSearchTextField())) {
+			searchBoxHeight = LocationActivity.getSearchButton().getHeight() + LocationActivity.getSearchTextField().getHeight();
+		}
+		
+		return searchBoxHeight;
+	}
 
 	private void handleLongpress(final MotionEvent event) {
 
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			// Finger has touched screen.
-			int teste = ((int) event.getY() - (CommonData.SEARCH_LAYOUT_HEIGHT));
+
+			// workaround to get the right map geoPoint
+			final int searchBoxHeight = calculateSearchBoxHeight();
+			
 			longpressTimer = new Timer();
 			longpressTimer.schedule(new TimerTask() {
 				@Override
 				public void run() {
 					GeoPoint longpressLocation = getProjection().fromPixels(
-							(int) event.getX(), ((int) event.getY() - (CommonData.SEARCH_LAYOUT_HEIGHT)));
+							(int) event.getX(), (int) event.getY() - (2 * searchBoxHeight));
 
 					/*
 					 * Fire the listener. We pass the map location of the
