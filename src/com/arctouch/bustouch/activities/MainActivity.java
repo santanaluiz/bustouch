@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -30,18 +31,18 @@ public class MainActivity extends Activity implements SearchableActivity {
 		initializeButtons();
 		
 		
-//		final MainActivity main = this;
-		// FIXME
-//		ImageButton btn = (ImageButton) this.findViewById(R.id.btnTabMaps);
-//		
-//		btn.setOnClickListener(new View.OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				Intent i = new Intent(main, LocationActivity.class);
-//				main.startActivity(i);
-//			}
-//		});
+		final MainActivity main = this;
+//		 FIXME
+		ImageButton btn = (ImageButton) this.findViewById(R.id.btnTabMaps);
+		
+		btn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(main, LocationActivity.class);
+				main.startActivity(i);
+			}
+		});
 	}
 	
 	@Override

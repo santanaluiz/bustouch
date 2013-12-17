@@ -11,6 +11,7 @@ public class CommonData {
 	public static final int HORARIOS_NOT_FOUND = 2;
 	public static final int LOCATION_NOT_FOUND = 3;
 	public static final int CONFIRM_CHECK_IN = 4;
+	public static int SEARCH_LAYOUT_HEIGHT = 0;
 	
 	/**
 	 * Check internet connection

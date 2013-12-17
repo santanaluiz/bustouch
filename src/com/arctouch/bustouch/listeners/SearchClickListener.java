@@ -6,7 +6,7 @@ import android.view.View.OnClickListener;
 
 import com.arctouch.bustouch.activities.SearchableActivity;
 import com.arctouch.bustouch.json.common.DialogBuilder;
-import com.arctouch.bustouch.threads.SearchRoutesTask;
+import com.arctouch.bustouch.tasks.SearchRoutesTask;
 
 public class SearchClickListener implements OnClickListener {
 

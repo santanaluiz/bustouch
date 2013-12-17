@@ -8,7 +8,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.arctouch.bustouch.activities.RoutesListActivity;
 import com.arctouch.bustouch.json.common.DialogBuilder;
-import com.arctouch.bustouch.threads.GetDeparturesByRouteTask;
+import com.arctouch.bustouch.tasks.GetDeparturesByRouteTask;
 
 public class RouteClickListener implements OnItemClickListener {
 

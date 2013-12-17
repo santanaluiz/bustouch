@@ -1,4 +1,4 @@
-package com.arctouch.bustouch.threads;
+package com.arctouch.bustouch.tasks;
 
 import java.util.List;
 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff">
+      
+  <LinearLayout
+	     android:id="@+id/layoutSearch"
+	     android:layout_width="fill_parent"
+	     android:layout_height="wrap_content"
+	     android:orientation="vertical" >
+	    
+      	<EditText
+	        android:id="@+id/txtBuscaMap"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:inputType="textShortMessage"
+	        android:lines="1"
+	        android:ems="10" >
+	    </EditText>
+	
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:gravity="right">
+	
+	        <ImageButton
+                    android:id="@+id/btnBuscarMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@drawable/botao_busca"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp" />
+	
+	    </LinearLayout>
+      
+  </LinearLayout>
+	<com.arctouch.bustouch.components.LongPressMapView
+	    android:id="@+id/map"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:clickable="true"
+      android:apiKey="0hveM28VuZZXLuzy6iOcT2Qe8BrbhknIfRRMGKQ"/>
+</LinearLayout>
