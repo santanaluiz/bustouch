@@ -2,11 +2,13 @@ package com.arctouch.bustouch.activities;
 
 import static com.arctouch.bustouch.util.ValidationUtil.isNotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.location.Geocoder;
 import android.location.Location;
@@ -22,6 +24,7 @@ import com.arctouch.bustouch.components.BusSignOverlay;
 import com.arctouch.bustouch.components.LongPressMapView;
 import com.arctouch.bustouch.json.common.CommonData;
 import com.arctouch.bustouch.json.common.DialogBuilder;
+import com.arctouch.bustouch.json.dto.ResponseDTO;
 import com.arctouch.bustouch.json.model.Route;
 import com.arctouch.bustouch.listeners.SearchClickListener;
 import com.arctouch.bustouch.tasks.GeocodingTask;
@@ -38,7 +41,6 @@ public class LocationActivity extends MapActivity implements LocationListener, S
 	private LocationManager locationManager;
 	private Location currentLocation;
 	private GeoPoint geoPoint;
-	private Geocoder geocoder;
 	private static EditText searchTextField;
 	private static ImageButton searchButton;
 	private List<Overlay> mapOverlays;
@@ -83,10 +85,10 @@ public class LocationActivity extends MapActivity implements LocationListener, S
 	}
 
 	private void initializeScreenElements() {
-		this.searchTextField = (EditText) this.findViewById(R.id.txtBuscaMap);
+		searchTextField = (EditText) this.findViewById(R.id.txtBuscaMap);
 		
-		this.searchButton = (ImageButton) this.findViewById(R.id.btnBuscarMap);
-		this.searchButton.setOnClickListener(new SearchClickListener(this));
+		searchButton = (ImageButton) this.findViewById(R.id.btnBuscarMap);
+		searchButton.setOnClickListener(new SearchClickListener(this));
 		
 		map = (LongPressMapView) this.findViewById(R.id.map);
 	}
@@ -98,9 +100,7 @@ public class LocationActivity extends MapActivity implements LocationListener, S
 		mapController.setZoom(16);
 		
 		locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-		
-		geocoder = new Geocoder(getBaseContext(), Locale.getDefault());
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, this);
 	}
 
 	@Override
@@ -174,17 +174,17 @@ public class LocationActivity extends MapActivity implements LocationListener, S
 
 	@Override
 	public void receiveListOflinhas(List<Route> routes) {
-//		Intent i = new Intent(this, LinhasEncontradasActivity.class);
-//		
-//		ResponseDTO dto = new ResponseDTO();
-//		dto.setLinhas((ArrayList<Linha>) linhas);
-//		dto.setTxtBusca(this.getSearchTextValue());
-//		
-//		i.putExtra("linhas", dto);
-//		
-//		this.startActivity(i);
-//		
-//		DialogBuilder.closeProgressDialog();
+		Intent i = new Intent(this, RoutesListActivity.class);
+		
+		ResponseDTO dto = new ResponseDTO();
+		dto.setRoutes((ArrayList<Route>) routes);
+		dto.setTxtBusca(this.getSearchTextValue());
+		
+		i.putExtra("linhas", dto);
+		
+		this.startActivity(i);
+		
+		DialogBuilder.closeProgressDialog();
 	}
 	
 	@Override
