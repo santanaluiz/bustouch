@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/com/arctouch/bustouch/activities/DeparturesActivity.java=UTF-8
+encoding//src/com/arctouch/bustouch/json/common/DialogBuilder.java=UTF-8
+encoding//src/com/arctouch/bustouch/json/common/GenericParser.java=UTF-8
+encoding//src/com/arctouch/bustouch/json/common/GeocodingHttpClient.java=UTF-8
+encoding//src/com/arctouch/bustouch/listeners/RouteClickListener.java=UTF-8
+encoding//src/com/arctouch/bustouch/listeners/SearchClickListener.java=UTF-8

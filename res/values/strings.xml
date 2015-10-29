@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BusTouch</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="search_button_description">Buscar</string>
+    <string name="search_by_map_description">Buscar pelo mapa</string>
+    <string name="logo_description">BusTouch logo</string>
+    
+    <string name="empty_resultset">Nenhum registro encontrado</string>
+    
+    <string-array name="horarios_combo">
+        <item>Dias úteis</item>
+        <item>Sábados</item>
+        <item>Domingos/Feriados</item>
+    </string-array>
+</resources>
